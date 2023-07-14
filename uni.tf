@@ -35,7 +35,7 @@ resource "aws_security_group" "tersec" {
       content {
         from_port = ingress.value
         to_port = ingress.value
-        protocol = "0"
+        protocol = "tcp"
         cidr_blocks = ["0.0.0.0/0"]
       }
     }
@@ -51,7 +51,7 @@ resource "aws_security_group" "tersec" {
         description = "Allow ping"
         from_port = 0
         to_port= 0
-        protocol = "0"
+        protocol = "-1"
         cidr_blocks = ["0.0.0.0/0"]
     }
 
