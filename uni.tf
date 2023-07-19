@@ -26,10 +26,6 @@ resource "aws_s3_bucket_cors_configuration" "example_cors" {
 
   cors_rule {
     allowed_methods = ["GET"]
-    allowed_origins = [file("url.txt")]
-  }
-  cors_rule {
-    allowed_methods = ["GET"]
-    allowed_origins = [*]
+    allowed_origins = [file("url.txt"),*]
   }
 }
