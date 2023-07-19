@@ -17,3 +17,12 @@ resource "aws_s3_object" "example_object" {
   key    = "sourse"
   source = "./sourse"
 }
+
+resource "aws_s3_bucket_cors_configuration" "example_cors" {
+  bucket = aws_s3_bucket.my_bucket.id
+
+  cors_rule {
+    allowed_methods = ["GET"]
+    allowed_origins = [file("url.txt")]
+  }
+}
