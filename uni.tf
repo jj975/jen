@@ -14,6 +14,6 @@ resource "aws_s3_bucket" "my_bucket" {
 
 resource "aws_s3_object" "example_object" {
   bucket = aws_s3_bucket.my_bucket.id
-  key    = "terraform.sh"
-  source = "/home/u/terraform.sh"
+  key    = "sourse"
+  source = "./sourse"
 }
