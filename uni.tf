@@ -15,7 +15,10 @@ resource "aws_s3_bucket" "my_bucket" {
 resource "aws_s3_object" "example_object" {
   bucket = aws_s3_bucket.my_bucket.id
   key    = "sourse"
-  source = "./sourse"
+  source = "sourse/"
+  acl    = "private"
+  cache_control = "max-age=86400"
+
 }
 
 resource "aws_s3_bucket_cors_configuration" "example_cors" {
@@ -24,5 +27,9 @@ resource "aws_s3_bucket_cors_configuration" "example_cors" {
   cors_rule {
     allowed_methods = ["GET"]
     allowed_origins = [file("url.txt")]
+  }
+  cors_rule {
+    allowed_methods = ["GET"]
+    allowed_origins = [*]
   }
 }
