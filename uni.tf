@@ -12,30 +12,19 @@ resource "aws_s3_bucket" "my_bucket" {
   }
 }
 
-resource "aws_s3_object" "example_object" {
-  bucket = aws_s3_bucket.my_bucket.id
-  key    = "main.tf"
-  source = "sourse/main.tf"
-  acl    = "private"
-  cache_control = "max-age=86400"
 
-}
 resource "aws_s3_object" "example_object" {
   bucket = aws_s3_bucket.my_bucket.id
   key    = "key.pem"
   source = "sourse/key.pem"
-  acl    = "private"
-  cache_control = "max-age=86400"
-
-}
-resource "aws_s3_object" "example_object" {
-  bucket = aws_s3_bucket.my_bucket.id
   key    = "Jenkinsfile"
   source = "sourse/Jenkinsfile"
-  acl    = "private"
-  cache_control = "max-age=86400"
+  key    = "main.tf"
+  source = "sourse/main.tf"
+
 
 }
+
 
 resource "aws_s3_bucket_cors_configuration" "example_cors" {
   bucket = aws_s3_bucket.my_bucket.id
